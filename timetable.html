@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skedula Timetable</title>
+  <link rel="stylesheet" href="timetable.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Skedula</div>
+      <label for="menu-toggle" class="hamburger">&#9776;</label>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="subscription.html" class="active">Subscription</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="container">
+    <h1>📚 Skedula Smart Timetable</h1><!-- Step 1: Enter Details -->
+<section>
+  <h2>Enter Study Plan</h2>
+  <input type="text" id="subject" placeholder="Enter Subject" required>
+
+  <div id="topicsContainer">
+    <div class="topicBlock">
+      <input type="text" placeholder="Topic Name" class="topicName" required>
+      <input type="number" placeholder="Pages" class="topicPages" required>
+    </div>
+  </div>
+  <button onclick="addTopicField()">➕ Add Topic</button>
+<br>
+  <label for="examDate">Exam Date:</label>
+  <input type="date" id="examDate" required>
+
+  <button onclick="generateTimetable()">📅 Generate Timetable</button>
+</section>
+
+<!-- Step 2: Show Output -->
+<section>
+  <h2>Generated Timetable</h2>
+  <div id="timetableResult"></div>
+</section>
+
+  </div>  <script src="timetable.js"></script></body>
+</html>

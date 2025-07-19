@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Subscribe - Skedula</title>
+  <link rel="stylesheet" href="subscription.css" />
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Skedula</div>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="hamburger">&#9776;</label>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="subscription.html" class="active">Subscription</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Subscription Container -->
+  <div class="container">
+    <h2>Premium Access - ₹1 Only</h2>
+    <p>Subscribe to unlock full access to your smart study planner, topic breakdowns, and PDF downloads.</p>
+    <button class="btn" id="payBtn">Pay ₹1 Now</button>
+    <div id="status"></div>
+  </div>
+
+  <!-- Razorpay Payment Script -->
+  <script>
+    document.getElementById("payBtn").onclick = function () {
+      var options = {
+        key: "YOUR_RAZORPAY_KEY", // Replace with real key
+        amount: 1, // 1 INR in paise
+        currency: "INR",
+        name: "Skedula",
+        description: "Premium Access",
+        handler: function (response) {
+          document.getElementById("status").innerHTML =
+            "<p style='color:green;'>✅ Payment successful. Access unlocked!</p>";
+          localStorage.setItem("subscribed", "true");
+        },
+        theme: {
+          color: "#0d47a1"
+        }
+      };
+      var rzp = new Razorpay(options);
+      rzp.open();
+    };
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - Skedula</title>
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <input type="text" id="FullName" placeholder="Enter Name" required>
+      <input type="text" id="Email" placeholder="Email Address" required>
+      <input type="password" id="signupPassword" placeholder="Enter Password" required>
+      <input type="Repeatpassword" id="signupPassword" placeholder="Repeat Password" required>
+      <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="login.html">Login here</a></p>
+  </div>
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const username = document.getElementById("signupUsername").value;
+      const password = document.getElementById("signupPassword").value;
+      localStorage.setItem("skedula_user", JSON.stringify({ username, password }));
+      alert("Signup successful! You can now log in.");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>
